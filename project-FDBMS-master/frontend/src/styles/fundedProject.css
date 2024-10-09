@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .FundedProjects {
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .project {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    height: 250px;
+    width: 300px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .project:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 5px black;
+  }
+  
+  .image {
+    height: 300px;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    background-color: #eaeaea;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .details {
+    padding: 10px;
+    overflow: hidden;
+  }
+  .details:hover{
+    overflow: scroll;
+  }
+  .details p {
+    margin-bottom: 10px;
+  }
+  
+  .details::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  /* .details::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+  }
+  
+  .details::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  
+  .details::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  } */

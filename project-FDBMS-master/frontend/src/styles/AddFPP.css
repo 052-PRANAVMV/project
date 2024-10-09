@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  /* CSS for PublicationForm component */
+  .divg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:50vh;
+    background-color: #f0f0f0;
+    
+  }
+  
+  .addpub {
+    border: 2px solid black;
+    position: relative;
+    width: 80%; /* Full width for small screens */
+    min-width: 350px;
+    max-width: 600px; /* Limit the width on larger screens */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
+    z-index: 3;
+    overflow: hidden;
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .addpub::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 45%;
+    height: 150%;
+    width: 100px;
+    background: linear-gradient(45deg, rgb(197, 49, 189), rgb(135, 235, 217));
+    z-index: -1;
+    animation: animate 2s linear infinite;
+  }
+  
+  .addpub::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    background-color: white;
+    z-index: -1;
+  }
+  /* Animation */
+  @keyframes animate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+  
+  .addpub:hover {
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px black;
+    transform: scale(1.02);
+  }
+  
+  .top {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .textdiv, .statusdiv, .dateSubmitted, .dateReviewed, .descriptionarea, .file {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  input[type="text"], select, textarea, input[type="file"], input[type="date"] {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  textarea {
+    height: 120px;
+  }
+  
+  .bt {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .bt button {
+    padding: 10px 20px;
+    font-size: 17px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .bt button.add {
+    background: linear-gradient(45deg, rgb(197, 49, 189), rgb(135, 235, 217));
+    width: 100%;
+    transition:2s;
+  }
+  
+  .bt button.add:hover {
+    background: linear-gradient(45deg,  rgb(135, 235, 217),rgb(197, 49, 189));
+  }

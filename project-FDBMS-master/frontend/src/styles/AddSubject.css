@@ -1,0 +1,174 @@
+/* Reset some basic styles for better cross-browser compatibility */
+body, html, div, form, input, select, label, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling for the subject-form container */
+.subject-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+/* Styling for the subject-form wrapper */
+.subject-form-wrapper {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Ensure vertical alignment */
+  align-items: center; /* Center align all child elements */
+}
+
+/* Background animation */
+.subject-form-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 45%;
+  height: 150%;
+  width: 100px;
+  background: linear-gradient(45deg, rgb(197, 49, 189), rgb(135, 235, 217));
+  z-index: -1;
+  animation: animate 2s linear infinite;
+}
+
+.subject-form-wrapper::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+  inset: 5px;
+  z-index: -1;
+}
+
+.subject-form-wrapper:hover {
+  transition: transform 0.3s;
+  box-shadow: 0 0 10px gray;
+  transform: scale(1.02);
+}
+
+/* Styling for the subject-form header */
+.subject-form-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Styling for subject-form groups */
+.subject-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 100%; /* Ensure full width */
+}
+
+/* Styling for labels */
+.subject-form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Styling for input fields */
+.subject-form-group input, .subject-form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.subject-form-group input:focus, .subject-form-group select:focus {
+  border-color: #007bff;
+}
+
+/* Styling for subject-form actions */
+.subject-form-actions {
+  text-align: center;
+}
+
+/* Styling for submit button */
+.submit-btn {
+  background: linear-gradient(45deg, rgb(197, 49, 189), rgb(135, 235, 217));
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(45deg, red, green);
+}
+
+/* Remove grid layout for larger screens */
+@media (min-width: 768px) {
+  .subject-form-wrapper {
+      display: flex; /* Keep it as flex */
+      flex-direction: column; /* Maintain single column */
+  }
+
+  .subject-form-header {
+      margin-bottom: 20px;
+  }
+
+  .subject-form-group {
+      flex-direction: column;
+      width: 100%; /* Ensure full width */
+  }
+
+  .subject-form-actions {
+      text-align: center;
+  }
+}
+
+/* Responsive styling for small screens */
+@media (max-width: 768px) {
+  .subject-form-wrapper {
+      padding: 20px;
+  }
+
+  .subject-form-header {
+      font-size: 20px;
+  }
+
+  .subject-form-group label {
+      font-size: 14px;
+  }
+
+  .subject-form-group input, .subject-form-group select {
+      font-size: 14px;
+  }
+
+  .submit-btn {
+      font-size: 14px;
+      padding: 10px 16px;
+  }
+}
+
+/* Keyframes for animation */
+@keyframes animate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}

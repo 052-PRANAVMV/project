@@ -1,0 +1,58 @@
+.form-container {
+  display: block !important; 
+    max-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    border: 2px solid #000;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 45%;
+    height: 150%;
+    width: 100px;
+    background: linear-gradient(45deg, rgb(197, 49, 189), rgb(135, 235, 217));
+    z-index: -1;
+    animation: animate 2s linear infinite;
+  }
+  
+  .form-container::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    inset: 5px;
+    z-index: -1;
+  }
+  
+  .form-container:hover {
+    transition: transform 0.3s;
+    box-shadow: 0 0 10px gray;
+    transform: scale(1.02);
+  }
+  
+  .submit-button {
+    background: linear-gradient(45deg, rgb(197, 49, 189), rgb(135, 235, 217));
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background: linear-gradient(45deg, red, green);
+  }
+  
+  @keyframes animate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
