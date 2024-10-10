@@ -21,7 +21,7 @@ function AddEvents() {
   const handleDelete = async (eventId) => {
     setStatus({ loading: true, success: false, error: null });
     try {
-      const response = await axios.delete('http://localhost:5000/api/delevents', {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/delevents`, {
         data: {
           empId: currentUser.data.empId,
           id: eventId,
@@ -58,7 +58,7 @@ function AddEvents() {
             <Row className='mt-5 mb-5 slide-in-left' key={index}>
               <Col xs={12} md={4} className='d-flex justify-content-center'>
                 <Image
-                  src={`http://localhost:5000/uploads/${event.image}`}
+                  src={`${process.env.REACT_APP_API_URL}/uploads/${event.image}`}
                   rounded
                 />
               </Col>

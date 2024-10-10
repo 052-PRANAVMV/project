@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 
 function Profilesection() {
   const {currentUser} = useSelector(state => state.user);
-  const photoURL = `http://localhost:5000/${currentUser.data.photoId}`;
+  const photoURL = `${process.env.REACT_APP_API_URL}/${currentUser.data.photoId}`;
   return (
-    <Container fluid className='text-center pb-5'>
+    <Container fluid className='text-center pb-5 mt-5'>
       <Row className='justify-content-center'>
         <Col xs={6} md={4}>
           <Image src={photoURL} roundedCircle style={{ width: '150px', height: '150px' }} />

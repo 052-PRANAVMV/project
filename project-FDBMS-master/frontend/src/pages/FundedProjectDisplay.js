@@ -42,7 +42,7 @@ function FundedProjectsDisplay() {
                 {filteredProjects.map((project) => (
                     <div className="project" key={project._id}>
                         <div className="image" id={`image${project.fileId}`}>
-                            <img src={`http://localhost:5000/uploads/${project.fileId}`} alt={project.title} />
+                            <img src={`${process.env.REACT_APP_API_URL}/uploads/${project.fileId}`} alt={project.title} />
                         </div>
                         <div className="details">
                             <p><strong>{project.title}</strong></p>

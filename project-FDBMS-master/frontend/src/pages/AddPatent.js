@@ -47,7 +47,7 @@ const PatentForm = () => {
     data.append('pdf', formValues.pdf);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/faculty/add-patent', data);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/faculty/add-patent`, data);
       if (response.status === 200) {
         alert('Patent added successfully');
         dispatch(signInSuccess(response));

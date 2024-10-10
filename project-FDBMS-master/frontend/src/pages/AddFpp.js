@@ -47,7 +47,7 @@ function AddFPP() {
     data.append('file', formData.file);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/faculty/add-fpp', data);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/faculty/add-fpp`, data);
       if (response.status === 200) {
         alert('Funded Project Proposal added successfully');
         dispatch(signInSuccess(response));

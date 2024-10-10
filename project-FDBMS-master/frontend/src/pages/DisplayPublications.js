@@ -44,7 +44,7 @@ function DisplayPublications() {
                 {filteredPublications.map((pub) => (
                     <div className="publication" key={pub._id}>
                         <div className="image" id={`image${pub.fileId}`}>
-                            <img src={`http://localhost:5000/uploads/${pub.fileId}`} alt={pub.title} />
+                            <img src={`${process.env.REACT_APP_API_URL}/uploads/${pub.fileId}`} alt={pub.title} />
                         </div>
                         <div className="description">
                             <p><strong>{pub.title}</strong></p>

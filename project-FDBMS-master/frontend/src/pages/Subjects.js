@@ -22,7 +22,7 @@ const Subjects = () => {
   const handleDelete = async (subjectId) => {
     setStatus({ loading: true, success: false, error: null });
     try {
-      const response = await axios.delete('http://localhost:5000/api/delsubjects', {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/delsubjects`, {
         data: {
           empId: currentUser?.data?.empId, // Use optional chaining
           id: subjectId,

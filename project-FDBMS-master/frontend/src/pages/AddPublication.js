@@ -47,7 +47,7 @@ function AddPublication() {
     data.append('file', formData.file);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/faculty/add-publication', data);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/faculty/add-publication`, data);
       if (response.status === 200) {
         alert('Publication added successfully');
         dispatch(signInSuccess(response));

@@ -24,7 +24,7 @@ const Books = () => {
   const handleDelete = async (bookId) => {
     setStatus({ loading: true, success: false, error: null });
     try {
-      const response = await axios.delete('http://localhost:5000/api/delbooks', {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/delbooks`, {
         data: {
           empId: currentUser?.data?.empId, // Use optional chaining
           id: bookId,

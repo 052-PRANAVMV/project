@@ -24,7 +24,7 @@ function Publications() {
   const handleDelete = async (pubId) => {
     setStatus({ loading: true, success: false, error: null });
     try {
-      const response = await axios.delete('http://localhost:5000/api/delpublications', {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/delpublications`, {
         data: {
           empId: currentUser?.data?.empId, // Use optional chaining
           id: pubId,
@@ -52,7 +52,7 @@ function Publications() {
         {publications.map((pub) => (
           <div className="publication" key={pub._id}>
             <div className="image" id={`image${pub.fileId}`}>
-              <img src={`http://localhost:5000/uploads/${pub.fileId}`} alt={pub.title} />
+              <img src={`${process.env.REACT_APP_API_URL}/uploads/${pub.fileId}`} alt={pub.title} />
             </div>
             <div className="description">
               <p><strong>{pub.title}</strong></p>

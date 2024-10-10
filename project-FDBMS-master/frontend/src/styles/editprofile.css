@@ -30,8 +30,8 @@
   }
   
   .form-control:focus {
-    background-color: #1e1e1e;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     border-color: #888;
     box-shadow: none;
   }

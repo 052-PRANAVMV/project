@@ -17,7 +17,7 @@ function AdminLoginForm() {
     setError(errors);
     if (Object.keys(errors).length === 0) {
       try {
-        const response = await axios.post('http://172.16.4.12:5000/auth/login', formData);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, formData);
         alert("Logged in successfully");
         console.log(response.data);
 

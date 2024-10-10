@@ -50,7 +50,7 @@ function DisplayAward() {
                         <Accordion.Body>
                             <Container>
                                 <Row>
-                                    <Col><Image src={`http://localhost:5000/uploads/${award.fileId}`} rounded/></Col>
+                                    <Col><Image src={`${process.env.REACT_APP_API_URL}/uploads/${award.fileId}`} rounded/></Col>
                                     <Col><p>{award.date}</p></Col>
                                     <Col><p>{award.organization}</p></Col>
                                     <Col><p>{award.issuer}</p></Col>

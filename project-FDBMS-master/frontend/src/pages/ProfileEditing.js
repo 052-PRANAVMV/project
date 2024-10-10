@@ -20,7 +20,7 @@ function ProfileEditing() {
     address: currentUser?.data?.address || '',
   });
   const [resume, setResume] = useState('');
-  const [profileImage, setProfileImage] = useState(`http://localhost:5000/${currentUser?.data?.photoId}`);
+  const [profileImage, setProfileImage] = useState(`${process.env.REACT_APP_API_URL}/${currentUser?.data?.photoId}`);
 
   useEffect(() => {
     if (currentUser) {
@@ -31,7 +31,7 @@ function ProfileEditing() {
         phone: currentUser.data.phone,
         address: currentUser.data.address,
       });
-      setProfileImage(`http://localhost:5000/${currentUser.data.photoId}`);
+      setProfileImage(`${process.env.REACT_APP_API_URL}/${currentUser.data.photoId}`);
     }
   }, [currentUser]);
 
@@ -59,7 +59,7 @@ function ProfileEditing() {
 
       if (resume) updatedData.resume = resume; // Append resume if uploaded
 
-      const response = await axios.put('http://localhost:5000/api/facultyedit', updatedData);
+      const response = await axios.put(`${process.env.REACT_APP_API_URL}/api/facultyedit`, updatedData);
       dispatch(signInSuccess(response));
       console.log("Profile updated successfully:", response.data);
       setEditProfile(false); // Exit edit mode after saving

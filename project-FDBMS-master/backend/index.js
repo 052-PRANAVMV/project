@@ -15,7 +15,7 @@ const FacultyRoutes = require('./routes/Faculty');
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000', 'http://172.16.4.12:3000'],
     credentials: true
 }));
 app.use(cookieParser());

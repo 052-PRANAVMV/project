@@ -24,7 +24,7 @@ function FundedProjects() {
   const handleDelete = async (projectId) => {
     setStatus({ loading: true, success: false, error: null });
     try {
-      const response = await axios.delete('http://localhost:5000/api/delprojects', {
+      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/delprojects`, {
         data: {
           empId: currentUser?.data?.empId, // Use optional chaining
           id: projectId,
@@ -52,7 +52,7 @@ function FundedProjects() {
         {projects.map((project) => (
           <div className="project" key={project._id}>
             <div className="image" id={`image${project.fileId}`}>
-              <img src={`http://localhost:5000/uploads/${project.fileId}`} alt={project.title} />
+              <img src={`${process.env.REACT_APP_API_URL}/uploads/${project.fileId}`} alt={project.title} />
             </div>
             <div className="details">
               <p><strong>{project.title}</strong></p>

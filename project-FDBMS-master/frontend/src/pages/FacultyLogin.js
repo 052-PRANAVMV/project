@@ -24,7 +24,7 @@ function FacultyLoginForm() {
     if (Object.keys(errors).length === 0) {
       try {
         dispatch(signInStart());
-        const response = await axios.post('http://localhost:5000/api/login', formData);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/login`, formData);
         console.log(response.data);
         
 
