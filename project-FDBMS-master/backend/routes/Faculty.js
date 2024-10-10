@@ -215,6 +215,32 @@ router.put('/facultyedit', async (req, res) => {
 });
 
 
+//------------------------------------------------------------profile upload----------------------------------------------------------------------
+
+
+router.put('/updateProfileImage', upload.single('profileImage'), async (req, res) => {
+  try {
+      const { empId } = req.body; // Get empId from the request body
+
+      // Find the faculty member by empId
+      const faculty = await Faculty.findOne({ empId });
+
+      if (!faculty) {
+          return res.status(404).json({ message: "Faculty not found" });
+      }
+
+      // Update the photoId field with the new image path
+      faculty.photoId = req.file.path; // req.file contains the uploaded file details
+
+      // Save the updated faculty member
+      await faculty.save();
+
+      res.status(200).json({ message: "Profile image updated successfully", photoId: faculty.photoId });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error updating profile image", error: error.message });
+  }
+});
 
 //-------------------------------------------------------------SUBJECT----------------------------------------------------------------------------
 
