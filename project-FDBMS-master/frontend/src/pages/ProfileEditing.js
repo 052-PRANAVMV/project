@@ -91,6 +91,28 @@ function ProfileEditing() {
         }
     };
 
+    const handleResumeUpload = async(e) => {
+        if(resume){
+            const formData = new FormData();
+            formData.append('resume' , resume );
+            formData.append('empId' , profileInfo.empId);
+
+            try {
+                const response = await axios.put(`${process.env.REACT_APP_API_URL}/api/uploadResume` , formData , {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
+
+                console.log('Resume uploaded succesfully:', response.data);
+            } catch (error){
+                console.error("Error uploading Resume :", error.response ? error.response.data : error.message);
+            }
+        } else {
+            console.log("No Resume Selected :")
+        }
+    };
+
     return (
         <div className="container mt-5 mb-5 profile-container">
             {/* Profile Section */}
@@ -213,6 +235,12 @@ function ProfileEditing() {
             <p>Add your resume here</p>
           )}
         </div>
+        <button 
+            className='btn btn-outline-dark rounded-pill btn-sm ms-2'
+            onClick={handleResumeUpload}
+        >
+            {resume ? 'Upload Resume': 'select and Upload'}
+        </button>    
       </div>
             {/* Modal for Image Upload */}
             <Modal show={showModal} onHide={() => setShowModal(false)}>

@@ -242,6 +242,42 @@ router.put('/updateProfileImage', upload.single('profileImage'), async (req, res
   }
 });
 
+
+//resume`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+router.put('/uploadResume', upload.single('resume'), async (req, res) => {
+  try {
+      const { empId } = req.body;
+
+      // Check if a resume file is included in the request
+      if (!req.file) {
+          return res.status(400).json({ message: "No resume file uploaded" });
+      }
+
+      // Find the faculty member by empId
+      const faculty = await Faculty.findOne({ empId });
+      if (!faculty) {
+          return res.status(404).json({ message: "Faculty not found" });
+      }
+
+      // Update the faculty record with the new resume path
+      faculty.resumeId = req.file.path;
+
+      // Save the updated faculty data
+      await faculty.save();
+
+      res.status(200).json({
+          message: "Resume uploaded successfully",
+          resumeId: faculty.resumeId
+      });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Error uploading resume", error: error.message });
+  }
+});
+
+
+
 //-------------------------------------------------------------SUBJECT----------------------------------------------------------------------------
 
 // Add a subject
